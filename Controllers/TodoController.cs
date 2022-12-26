@@ -11,6 +11,7 @@ using MyTodoApp.Models;
 
 namespace MyTodoApp.Controllers
 {
+
     [Authorize]
     public class TodoController : Controller
     {
@@ -21,7 +22,7 @@ namespace MyTodoApp.Controllers
             _context = context;
         }
 
-        // GET: Todo
+        //  GET: Todo
         public async Task<IActionResult> Index()
         {
             return View(await _context.Todos
@@ -59,7 +60,7 @@ namespace MyTodoApp.Controllers
             return View();
         }
 
-        // POST: Todo/Create
+        // / POST: Todo/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -109,6 +110,7 @@ namespace MyTodoApp.Controllers
             {
                 try
                 {
+
                     todo.User = User.Identity.Name;
                     todo.LastUpdateDate = DateTime.Now;
 
